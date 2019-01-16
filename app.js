@@ -16,6 +16,17 @@ candidate1.electionResults = [5, 1, 7, 2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0
 
 candidate2.electionResults = [4, 2, 4, 4, 22, 3, 3, 1, 2, 15, 8, 1, 3, 9, 0, 6, 1, 5, 5, 1, 3, 7, 8, 1, 3, 3, 1, 3, 2, 2, 6, 2, 14, 0, 1, 6, 7, 3, 7, 3, 6, 1, 3, 17, 3, 1, 2, 11, 2, 3, 1];
 
+// New counts are in; fix the counts
+// FL
+candidate1.electionResults.splice(9, 1, 1);
+candidate2.electionResults.splice(9, 1, 28);
+// CA
+candidate1.electionResults.splice(4, 1, 17);
+candidate2.electionResults.splice(4, 1, 38);
+// TX
+candidate1.electionResults.splice(43, 1, 11);
+candidate2.electionResults.splice(43, 1, 27);
+
 /* create for loop to sum the election results as a rough doublecheck to use in the console to verify that the data was entered correctly:
 
 var sumElectionResults = function (i) {
