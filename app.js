@@ -37,12 +37,13 @@ candidate2.electionResults.splice(43, 1, 27);
 
 // Declare winner
 
-var winner = function () {
-    if (candidate1.sumElectionResults > candidate2.sumElectionResults) {
-        console.log(candidate1.name + " is the winner!");
-    } else {
-        console.log(candidate1.name + " is the winner!");
-    }
-};
+var winner = "???"
 
-winner();
+if (candidate1.sumElectionResults > candidate2.sumElectionResults) {
+    winner = candidate1.name;
+} else if (candidate1.sumElectionResults < candidate2.sumElectionResults) {
+    winner = candidate2;
+} else {
+    winner = "DRAW."
+}
+console.log(winner);
