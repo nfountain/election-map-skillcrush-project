@@ -5,6 +5,14 @@ var createPolitician = function (polName) {
     politician.name = polName;
     politician.electionResults = null;
     politician.totalVotes = 0;
+    politician.sumElectionResults = function (i) {
+        this.total = 0;
+        for (var i = 0; i < this.electionResults.length; i++) {
+            this.total = this.total + this.electionResults[i];
+        }
+        console.log(this.total);
+    };
+    politician.sumElectionResults();
 
     return politician;
 };
@@ -26,16 +34,3 @@ candidate2.electionResults.splice(4, 1, 38);
 // TX
 candidate1.electionResults.splice(43, 1, 11);
 candidate2.electionResults.splice(43, 1, 27);
-
-/* create for loop to sum the election results as a rough doublecheck to use in the console to verify that the data was entered correctly:
-
-var sumElectionResults = function (i) {
-    var total = 0;
-    for (i = 0; i < electionResults.length; i++) {
-        total = total + electionResults[i];
-    }
-    console.log(total);
-};
-
-sumElectionResults();
-*/
