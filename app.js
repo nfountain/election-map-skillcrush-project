@@ -3,7 +3,7 @@
 var createPolitician = function (polName) {
     var politician = {};
     politician.name = polName;
-    politician.electionResults = null;
+    politician.electionResults = [];
     politician.totalVotes = 0;
     politician.sumElectionResults = function (i) {
         this.total = 0;
@@ -34,3 +34,15 @@ candidate2.electionResults.splice(4, 1, 38);
 // TX
 candidate1.electionResults.splice(43, 1, 11);
 candidate2.electionResults.splice(43, 1, 27);
+
+// Declare winner
+
+var winner = function () {
+    if (candidate1.sumElectionResults > candidate2.sumElectionResults) {
+        console.log(candidate1.name + " is the winner!");
+    } else {
+        console.log(candidate1.name + " is the winner!");
+    }
+};
+
+winner();
