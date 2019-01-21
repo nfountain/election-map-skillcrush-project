@@ -59,8 +59,6 @@ var setStateResults = function (state) {
 
 candidate1.sumElectionResults();
 candidate2.sumElectionResults();
-//console.log(candidate1.totalVotes);
-//console.log(candidate2.totalVotes);
 
 // Declare winner
 
@@ -74,3 +72,15 @@ if (candidate1.totalVotes > candidate2.totalVotes) {
     winner = "DRAW."
 }
 console.log(winner);
+
+// Country Summary Table (Practice navigating the DOM and populating contents of a table)
+
+var countryResults = document.getElementById('countryResults');
+// Populate Candidate1's info
+countryResults.children[0].children[0].children[0].innerText = candidate1.name;
+countryResults.children[0].children[0].children[1].innerText = candidate1.totalVotes;
+// Populate Candidate2's info
+countryResults.children[0].children[0].children[2].innerText = candidate2.name;
+countryResults.children[0].children[0].children[3].innerText = candidate2.totalVotes;
+// Populate winner name
+countryResults.children[0].children[0].children[5].innerText = winner;
