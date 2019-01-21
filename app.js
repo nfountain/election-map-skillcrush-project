@@ -55,6 +55,27 @@ var setStateResults = function (state) {
     } else {
         theStates[state].rgbColor = [11, 32, 57];
     }
+
+    // State Summary Table
+    var stateInfoTable = document.getElementById('stateResults');
+    var header = stateInfoTable.children[0];
+    var body = stateInfoTable.children[1];
+
+    var stateName = header.children[0].children[0];
+    var abbrev = header.children[0].children[1];
+    var candidate1Name = body.children[0].children[0];
+    var candidate2Name = body.children[1].children[0];
+    var candidate1Results = body.children[0].children[1];
+    var candidate2Results = body.children[1].children[1];
+    var winnersName = body.children[2].children[1];
+
+    stateName.innerText = theStates[state].nameFull;
+    abbrev.innerText = theStates[state].nameAbbrev;
+    candidate1Name.innerText = candidate1.name;
+    candidate2Name.innerText = candidate2.name;
+    candidate1Results.innerText = candidate1.electionResults[state];
+    candidate2Results.innerText = candidate2.electionResults[state];
+
 };
 
 candidate1.sumElectionResults();
@@ -77,10 +98,10 @@ console.log(winner);
 
 var countryResults = document.getElementById('countryResults');
 var countryResultsTableRow = countryResults.children[0].children[0];
-// Populate Candidate1's info
+// Populate candidate1's info
 countryResultsTableRow.children[0].innerText = candidate1.name;
 countryResultsTableRow.children[1].innerText = candidate1.totalVotes;
-// Populate Candidate2's info
+// Populate candidate2's info
 countryResultsTableRow.children[2].innerText = candidate2.name;
 countryResultsTableRow.children[3].innerText = candidate2.totalVotes;
 // Populate winner name
