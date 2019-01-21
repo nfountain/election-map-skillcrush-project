@@ -46,7 +46,7 @@ var setStateResults = function (state) {
     }
     else if (candidate2.electionResults[state] > candidate1.electionResults[state]) {
         theStates[state].winner = candidate2;
-    }
+    };
 
     var stateWinner = theStates[state].winner;
 
@@ -54,7 +54,7 @@ var setStateResults = function (state) {
         theStates[state].rgbColor = stateWinner.partyColor;
     } else {
         theStates[state].rgbColor = [11, 32, 57];
-    }
+    };
 
     // State Summary Table
     var stateInfoTable = document.getElementById('stateResults');
@@ -76,6 +76,12 @@ var setStateResults = function (state) {
     candidate1Results.innerText = candidate1.electionResults[state];
     candidate2Results.innerText = candidate2.electionResults[state];
 
+    if (stateWinner !== null) {
+        winnersName.innerText = stateWinner.name;
+    } else {
+        winnersName.innerText = "DRAW.";
+    };
+
 };
 
 candidate1.sumElectionResults();
@@ -90,7 +96,7 @@ if (candidate1.totalVotes > candidate2.totalVotes) {
 } else if (candidate1.totalVotes < candidate2.totalVotes) {
     winner = candidate2.name;
 } else {
-    winner = "DRAW."
+    winner = "DRAW.";
 }
 console.log(winner);
 
