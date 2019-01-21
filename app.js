@@ -76,11 +76,12 @@ console.log(winner);
 // Country Summary Table (Practice navigating the DOM and populating contents of a table)
 
 var countryResults = document.getElementById('countryResults');
+var countryResultsTableRow = countryResults.children[0].children[0];
 // Populate Candidate1's info
-countryResults.children[0].children[0].children[0].innerText = candidate1.name;
-countryResults.children[0].children[0].children[1].innerText = candidate1.totalVotes;
+countryResultsTableRow.children[0].innerText = candidate1.name;
+countryResultsTableRow.children[1].innerText = candidate1.totalVotes;
 // Populate Candidate2's info
-countryResults.children[0].children[0].children[2].innerText = candidate2.name;
-countryResults.children[0].children[0].children[3].innerText = candidate2.totalVotes;
+countryResultsTableRow.children[2].innerText = candidate2.name;
+countryResultsTableRow.children[3].innerText = candidate2.totalVotes;
 // Populate winner name
-countryResults.children[0].children[0].children[5].innerText = winner;
+countryResultsTableRow.children[5].innerText = winner;
