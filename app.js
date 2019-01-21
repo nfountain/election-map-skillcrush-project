@@ -1,24 +1,24 @@
 // Create Politician Factory Object
 
-var createPolitician = function (polName) {
+var createPolitician = function (polName, partyColor) {
     var politician = {};
     politician.name = polName;
+    politician.partyColor = partyColor;
     politician.electionResults = [];
     politician.totalVotes = 0;
     politician.sumElectionResults = function (i) {
-        this.total = 0;
+        this.totalVotes = 0;
         for (var i = 0; i < this.electionResults.length; i++) {
-            this.total = this.total + this.electionResults[i];
+            this.totalVotes = this.totalVotes + this.electionResults[i];
         }
-        console.log(this.total);
+        console.log(this.totalVotes);
     };
-    politician.sumElectionResults();
 
     return politician;
 };
 
-var candidate1 = createPolitician('George');
-var candidate2 = createPolitician('Julie');
+var candidate1 = createPolitician('George', [132, 17, 11]);
+var candidate2 = createPolitician('Julie', [245, 141, 136]);
 
 candidate1.electionResults = [5, 1, 7, 2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0, 5, 3, 3, 3, 7, 4, 8, 9, 3, 7, 2, 2, 4, 2, 8, 3, 15, 15, 2, 12, 0, 4, 13, 1, 3, 2, 8, 21, 3, 2, 11, 1, 3, 7, 2];
 
@@ -35,14 +35,21 @@ candidate2.electionResults.splice(4, 1, 38);
 candidate1.electionResults.splice(43, 1, 11);
 candidate2.electionResults.splice(43, 1, 27);
 
+// total up the votes
+
+candidate1.sumElectionResults();
+candidate2.sumElectionResults();
+//console.log(candidate1.totalVotes);
+//console.log(candidate2.totalVotes);
+
 // Declare winner
 
 var winner = "???"
 
-if (candidate1.sumElectionResults > candidate2.sumElectionResults) {
+if (candidate1.totalVotes > candidate2.totalVotes) {
     winner = candidate1.name;
-} else if (candidate1.sumElectionResults < candidate2.sumElectionResults) {
-    winner = candidate2;
+} else if (candidate1.totalVotes < candidate2.totalVotes) {
+    winner = candidate2.name;
 } else {
     winner = "DRAW."
 }
