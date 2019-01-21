@@ -11,7 +11,6 @@ var createPolitician = function (polName, partyColor) {
         for (var i = 0; i < this.electionResults.length; i++) {
             this.totalVotes = this.totalVotes + this.electionResults[i];
         }
-        console.log(this.totalVotes);
     };
 
     return politician;
@@ -79,7 +78,7 @@ var setStateResults = function (state) {
     if (stateWinner !== null) {
         winnersName.innerText = stateWinner.name;
     } else {
-        winnersName.innerText = "DRAW.";
+        winnersName.innerText = "DRAW";
     };
 
 };
@@ -96,9 +95,8 @@ if (candidate1.totalVotes > candidate2.totalVotes) {
 } else if (candidate1.totalVotes < candidate2.totalVotes) {
     winner = candidate2.name;
 } else {
-    winner = "DRAW.";
+    winner = "DRAW";
 }
-console.log(winner);
 
 // Country Summary Table (Practice navigating the DOM and populating contents of a table)
 
