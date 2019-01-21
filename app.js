@@ -37,6 +37,26 @@ candidate2.electionResults.splice(43, 1, 27);
 
 // total up the votes
 
+var setStateResults = function (state) {
+
+    theStates[state].winner = null;
+
+    if (candidate1.electionResults[state] > candidate2.electionResults[state]) {
+        theStates[state].winner = candidate1;
+    }
+    else if (candidate2.electionResults[state] > candidate1.electionResults[state]) {
+        theStates[state].winner = candidate2;
+    }
+
+    var stateWinner = theStates[state].winner;
+
+    if (stateWinner !== null) {
+        theStates[state].rgbColor = stateWinner.partyColor;
+    } else {
+        theStates[state].rgbColor = [11, 32, 57];
+    }
+};
+
 candidate1.sumElectionResults();
 candidate2.sumElectionResults();
 //console.log(candidate1.totalVotes);
